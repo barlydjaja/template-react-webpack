@@ -1,14 +1,9 @@
-import React, { Component } from "react";
-import Loadable from "react-loadable";
-const LoadApp = Loadable({
-    loader: () => import("./App"),
-    loading() {
-        return <div>Loading...</div>;
-    },
-    timeout: 10000 // 10 seconds
-});
-export default class LoadableApp extends Component {
-    render() {
-        return <LoadApp />
-    }
+import React from "react";
+import Loadable from "@loadable/component";
+const App = Loadable(() => import("./App"))
+
+const LoadableApp = () => {
+    return (<App />);
 }
+
+export default LoadableApp;
