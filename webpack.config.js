@@ -22,13 +22,23 @@ module.exports = ({ mode } = { mode: "production" }) => {
         module: {
             rules: [
                 {
-                    test: /\.(js|jsx)$/,
+                    test: /\.(ts|js)x?$/i,
                     exclude: /node_modules/,
-                    loader: "babel-loader"
+                    loader: "babel-loader",
+                    options: {
+                        presets: [
+                            "@babel/preset-env",
+                            "@babel/preset-react",
+                            "@babel/preset-typescript",
+                        ],
+                    },
                 }
             ]
         },
-
+        resolve: {
+            extensions: [".tsx", ".ts", ".js"],
+        },
+        devtool: "inline-source-map",
         plugins: [
             new HtmlWebpackPlugin({
                 template: "./public/index.html"

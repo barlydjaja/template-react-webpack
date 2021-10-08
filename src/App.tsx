@@ -4,7 +4,7 @@ import './sass/app.scss';
 
 const App = () => {
     const [count, setCount] = useState(0)
-    const handleClick = () =>{
+    const handleClick = (): void =>{
         setCount(count+1)
     }
 
